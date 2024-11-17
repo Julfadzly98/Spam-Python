@@ -1,9 +1,6 @@
 import pywhatkit
 import time  # To add a delay between messages if needed
 
-# Define the list of phone numbers in international format
-phone_numbers = ["+60168300256"]  # Replace with actual phone numbers
-
 
 
 
@@ -56,20 +53,29 @@ Warm regards,
 Maker Nation
 Einstronic Enterprise Sdn Bhd
 
-
- """
-
+"""
 
 
+# Define the list of phone numbers in international format
+phone_numbers = [
+    "+60 19-305 0872", "+60 10-944 3177", "+60 14-933 9253", "+60 11-2623 0118", 
+    "+60 13-377 9703", "+60 11-1126 5584", "+60 16-335 6255", "+60 13-555 3293",
+    "+60 19-484 9410", "+60 16-577 8857", "+60 10-935 9026", "+60 11-2626 1077",
+    "+60 19-123 4567", "+60 12-345 6789", "+60 11-987 6543", "+60 14-111 2222",
+    "+60 16-333 4444", "+60 17-555 6666", "+60 18-777 8888", "+60 19-999 0000",
+]  # Replace with actual phone numbers
 
 
 
-# Loop through each phone number and send the message instantly
-for phone_number in phone_numbers:
+
+# Loop through numbers and send messages
+for number in phone_numbers:
     try:
-        pywhatkit.sendwhatmsg_instantly(phone_number, message)
-        print(f"Message sent successfully to {phone_number}!")
-        # Add a short delay to avoid sending messages too close together
-        time.sleep(10)  # Adjust delay as necessary
+        print(f"Sending message to {number}")
+        kit.sendwhatmsg_instantly(number, message, wait_time=10, tab_close=True)
+        
+        # Optional: Small delay to prevent excessive requests
+        time.sleep(5)  # 5-second delay between messages
+        
     except Exception as e:
-        print(f"An error occurred while sending to {phone_number}: {e}")
+        print(f"Failed to send message to {number}: {e}")
